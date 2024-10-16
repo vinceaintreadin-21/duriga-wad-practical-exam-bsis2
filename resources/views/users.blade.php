@@ -9,6 +9,9 @@
 <body>
     <h1>USER PAGE</h1>
 
+    <form action="{{Route('createUser')}}">
+        <button type="submit">Create User</button>
+    </form>
     @foreach ($users as $user)
         <div>Name:{{$user->name}}</div>
         <div>Email:{{$user->email}}</div>
@@ -17,6 +20,10 @@
         <div>Status:{{$user->status}}</div>
         <div>Contact Number:{{$user->contact_number}}</div>
         <div>Password:{{$user->password}}</div>
+
+        <form action="{{Route('showUser', ['id'=>$user->id])}}" method="GET">
+            <button type="submit">View User</button>
+        </form>
         <hr>
     @endforeach
 
